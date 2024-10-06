@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "build/assign4client",
+    "public": "dist",
     "ignore": [
       "firebase.json",
       "**/.*",

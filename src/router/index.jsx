@@ -10,6 +10,7 @@ import About from "../pages/about";
 import Blog from "../pages/blog";
 import Register from "../pages/Register/Register";
 import Login from "../pages/Login/Login";
+import PrivateRoute from "./privateroutes";
 
 const router=createBrowserRouter([
     {
@@ -28,7 +29,10 @@ const router=createBrowserRouter([
            } ,
             {
              path:`${ROUTES.COURSES}`, 
-             element:<Bookspage/> ,
+             
+             element:(<PrivateRoute>
+                <Bookspage/> 
+             </PrivateRoute>),
              loader: () =>
                 // fetch(`http://localhost:5000/courseDetails`),
              fetch(`https://assign4server.vercel.app/courseDetails`),
@@ -36,7 +40,9 @@ const router=createBrowserRouter([
 
         {
             path:`${ROUTES.SINGLE_COURSES.STATIC}`,
-            element:<BookDetailspage/> ,
+            element:(<PrivateRoute>
+            <BookDetailspage/>
+            </PrivateRoute>) ,
             loader: ({params}) =>
                 // fetch(`http://localhost:5000/courseDetails`),
              fetch(`https://assign4server.vercel.app/courseDetails/${params.courseId}`),
