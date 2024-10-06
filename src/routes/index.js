@@ -1,9 +1,9 @@
 export const ROUTES={
     HOME:"/",
-    BOOKS:"/books",
-    SINGLE_BOOKS:{
-        STATIC:"/books/:bookId",
-        DYNAMIC:(bookId)=>`/books/${bookId}`,
+    COURSES:"/courses",
+    SINGLE_COURSES:{
+        STATIC:"/courses/:courseId",
+        DYNAMIC:(courseId)=>`/courses/${courseId}`,
     },
     
 };

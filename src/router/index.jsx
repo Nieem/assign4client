@@ -1,13 +1,15 @@
 import {createBrowserRouter, Navigate,NavLink, Route, Routes} from "react-router-dom";
 import CommonLayout from "../layout/commonlayout";
-import Bookspage from "../pages/bookspage";
-import BookDetailspage from "../pages/bookdetailspage";
+import Bookspage from "../pages/coursepage";
+import BookDetailspage from "../pages/coursedetailspage";
 import Homepage from "../pages/homepage";
 import { ROUTES } from "../routes";
 import NotFoundPage from "../pages/notfound-404";
 import Faqpage from "../pages/faq";
 import About from "../pages/about";
 import Blog from "../pages/blog";
+import Register from "../pages/Register/Register";
+import Login from "../pages/Login/Login";
 
 const router=createBrowserRouter([
     {
@@ -18,18 +20,26 @@ const router=createBrowserRouter([
         children:[
             {
                 path:`${ROUTES.HOME}`,
-                element:<Homepage/>  
+                element:<Homepage/>  ,
+                loader: () =>
+                    // fetch(`http://localhost:5000/courseDetails`),
+                 fetch(`https://assign4server.vercel.app/courseDetails`),
    
            } ,
             {
-             path:`${ROUTES.BOOKS}`, 
-             element:<Bookspage/>  
-
-        } ,
+             path:`${ROUTES.COURSES}`, 
+             element:<Bookspage/> ,
+             loader: () =>
+                // fetch(`http://localhost:5000/courseDetails`),
+             fetch(`https://assign4server.vercel.app/courseDetails`),
+          } ,
 
         {
-            path:`${ROUTES.SINGLE_BOOKS.STATIC}`,
-            element:<BookDetailspage/>  
+            path:`${ROUTES.SINGLE_COURSES.STATIC}`,
+            element:<BookDetailspage/> ,
+            loader: ({params}) =>
+                // fetch(`http://localhost:5000/courseDetails`),
+             fetch(`https://assign4server.vercel.app/courseDetails/${params.courseId}`),
 
        } ,
        {
@@ -47,11 +57,20 @@ const router=createBrowserRouter([
         {   path:"*",
             element:<NotFoundPage/>,
 
-        }
+        },
+        {
+            path:"/register",
+            element:<Register/>
+          },
+          {
+            path:"/login",
+            element:<Login/>
+          }
+
       
     ],
    
-      
+     
 
     }
 ]);

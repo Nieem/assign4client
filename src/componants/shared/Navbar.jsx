@@ -1,8 +1,23 @@
-import React from 'react';
+import {React,useContext} from 'react';
 import logo from "../../assets/navlogo.jpg";
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../provider/AuthProvider';
+
 
 const Navbar = () => {
+
+  const { user, logOut } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const handleSignOut = () => {
+    logOut()
+      .then(() => {
+        navigate("/login");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
     return (
         <>
    <div className="navbar  bg-sky-950 top-0 text-white z-20" id="nabbarhide -z-10">
@@ -28,8 +43,33 @@ const Navbar = () => {
 
  {/* humbege menu  */}
  <div className='navbar-end hidden lg:flex md:flex gap-5'>
- <li><a id="chicken" className="ml-20navbtn hover:bg-red-700" href="#mainpart">Buy Book</a></li>
- <li><a id="beef" className="navbtn hover:bg-red-700" href="#mainpart">Sign In</a></li>
+ {user && <span className="text-white mr-3">{user.displayName}</span>}
+        <div
+          tabIndex={0}
+          role="button"
+          className="btn btn-ghost btn-circle avatar mr-3"
+        >
+          <div className="w-10 rounded-full">
+            {/* <img alt="User" src={userPic} /> */}
+          </div>
+        </div>
+
+        {user ? (
+          <button
+            onClick={handleSignOut}
+            className="btn btn-sm btn-outline btn-success text-md rounded-none"
+          >
+            Logout
+          </button>
+        ) : (
+          <Link to="/login">
+            <button className="btn btn-sm btn-info text-md rounded-none">
+              Login
+            </button>
+          </Link>
+        )}
+ {/* <li><a id="chicken" className="ml-20navbtn hover:bg-red-700" href="#mainpart">Buy Book</a></li>
+ <li><a id="beef" className="navbtn hover:bg-red-700" href="#mainpart">Sign In</a></li> */}
  </div>
 <div className=" navbar-end lg:hidden md:hidden">
 
