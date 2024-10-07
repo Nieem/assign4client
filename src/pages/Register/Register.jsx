@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import Navbar from "../../componants/shared/Navbar";
+// import Navbar from "../../componants/shared/Navbar";
 import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import toast from "react-hot-toast";
