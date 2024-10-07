@@ -7,6 +7,8 @@ import { useLoaderData } from 'react-router-dom';
 import SingleBook from '../componants/shared/singlecourse';
 import ProductrelatedImage from './productRelatedImages';
 import p1 from '../../src/assets/java.webp'
+import Contactus from './contactus';
+import Aboutus from './aboutus';
 
 const Homepage = () => {
     const courses = useLoaderData();
@@ -20,9 +22,9 @@ const Homepage = () => {
        <Banner/>
        <ProductrelatedImage/>
        
-
+      <Contactus/>
     
-  
+      <Aboutus/>
 
        
        </>

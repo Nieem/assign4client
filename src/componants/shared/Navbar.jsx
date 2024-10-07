@@ -1,5 +1,5 @@
 import {React,useContext} from 'react';
-import logo from "../../assets/navlogo.jpeg";
+import logo from "../../assets/navlogo.jpg";
 import { Link,useNavigate,NavLink } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
 
@@ -68,8 +68,6 @@ const Navbar = () => {
             </button>
           </Link>
         )}
- {/* <li><a id="chicken" className="ml-20navbtn hover:bg-red-700" href="#mainpart">Buy Book</a></li>
- <li><a id="beef" className="navbtn hover:bg-red-700" href="#mainpart">Sign In</a></li> */}
  </div>
 <div className=" navbar-end lg:hidden md:hidden">
 
@@ -92,12 +90,24 @@ stroke="currentColor">
 <ul
 tabIndex="0"
 className="menu menu-sm dropdown-content z-30 bg-slate-800 rounded-box -translate-x-20  mt-3 w-32 p-2 shadow hover:bg-slate-400">
-<li><a id="potato"  className="hover:bg-red-700" href="#mainpart">Home</a></li>
-<li><a id="soup"  className="hover:bg-red-700" href="#mainpart">About</a></li>
-<li><a id="chicken"  className="hover:bg-red-700" href="#mainpart">Blog</a></li>
-<li><a id="beef"  className="hover:bg-red-700" href="#mainpart">FAQ</a></li>
-<li><a id="chicken"  className="hover:bg-red-700" href="#mainpart">Buy Book</a></li>
-<li><a id="beef"  className="hover:bg-red-700" href="#mainpart">Sign in</a></li>
+<li><NavLink  to="/"> Home</NavLink></li>
+<li><NavLink  to="/courses"> courses</NavLink></li>
+        <li><NavLink  to="/blog"> Blog</NavLink></li>
+         <li><NavLink  to="/faq"> FAQ</NavLink></li>
+         {user ? (
+          <button
+            onClick={handleSignOut}
+            className="btn btn-sm btn-outline btn-success text-md rounded-none"
+          >
+            Logout
+          </button>
+        ) : (
+          <Link to="/login">
+            <button className="btn btn-sm btn-info text-md rounded-none">
+              Login
+            </button>
+          </Link>
+        )}
 </ul>
 
 </div>
