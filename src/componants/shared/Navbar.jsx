@@ -1,6 +1,6 @@
 import {React,useContext} from 'react';
-import logo from "../../assets/navlogo.jpg";
-import { Link,useNavigate } from 'react-router-dom';
+import logo from "../../assets/navlogo.jpeg";
+import { Link,useNavigate,NavLink } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
 
 
@@ -23,9 +23,9 @@ const Navbar = () => {
    <div className="navbar  bg-sky-950 top-0 text-white z-20" id="nabbarhide -z-10">
   
 <div className="navbar-start">
-    <img src={logo} alt="Logo" className="w-14"/>
+    <img src={logo} alt="Logo" className="w-14 ps-7"/>
     <Link to="/">
-    <span className="text-2xl font-bold ml-2">Brothers Book House</span>
+    <span className="text-2xl font-bold ml-2">BD IT ZONE</span>
     </Link>
   </div>
   
@@ -34,10 +34,10 @@ const Navbar = () => {
 
   <div id="navbtnId" className="navbar-center hidden lg:flex md:flex">
     <ul className="menu menu-horizontal px-1">
-     <li><Link className="navbtn hover:bg-red-700" to="/"> Home</Link></li>
-        <li><Link className="navbtn hover:bg-red-700" to="/about"> About</Link></li>
-        <li><Link className="navbtn hover:bg-red-700" to="/blog"> Blog</Link></li>
-         <li><Link className="navbtn hover:bg-red-700" to="/faq"> FAQ</Link></li>
+     <li><NavLink  to="/"> Home</NavLink></li>
+        <li><NavLink  to="/courses"> courses</NavLink></li>
+        <li><NavLink  to="/blog"> Blog</NavLink></li>
+         <li><NavLink  to="/faq"> FAQ</NavLink></li>
     </ul>
   </div>
 
