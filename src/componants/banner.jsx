@@ -1,6 +1,7 @@
 import React from 'react';
 import banner from "../assets/banner.jpg";
 
+
 const Banner = () => {
     return (
 //         <div>
@@ -25,8 +26,8 @@ const Banner = () => {
 <div
   className="hero min-h-screen -top-2"
   style={{
-     backgroundImage:"url(../src/assets/banner.jpg)"
-  }}>
+    backgroundImage:"url(/banner.jpg)",
+ }}>
   <div className="hero-overlay bg-opacity-60"></div>
   <div className="hero-content text-neutral-content text-center">
     <div className="max-w-md">
